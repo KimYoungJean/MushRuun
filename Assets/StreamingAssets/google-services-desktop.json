@@ -1,0 +1,30 @@
+{
+  "project_info": {
+    "project_number": "827196648982",
+    "firebase_url": "https://mushrun-3e71e-default-rtdb.firebaseio.com",
+    "project_id": "mushrun-3e71e",
+    "storage_bucket": "mushrun-3e71e.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:827196648982:android:863737db6540bc83b18f37",
+        "android_client_info": {
+          "package_name": "com.KGA.mushrun"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyARyPz4h1Mc1JKHUcSM5TRFfd-uZ3P9aew"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

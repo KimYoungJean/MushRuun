@@ -1,3 +1,4 @@
+using TMPro;
 using UnityEngine;
 
 public class PlayerController : MonoBehaviour
@@ -12,10 +13,13 @@ public class PlayerController : MonoBehaviour
     private int jumpCount = 0;  // 점프 카운트
     private const int maxJumpCount = 1;  // 최대 2단 점프 가능
 
+    public TextMeshProUGUI playerName;
+
     private void Start()
     {
         rb = GetComponent<Rigidbody2D>();  // Rigidbody2D 컴포넌트 가져오기
         animator = GetComponent<Animator>();  // Animator 컴포넌트 가져오기
+        playerName.text = FirebaseManager.Nickname;
     }
 
     private void Update()
@@ -36,8 +40,9 @@ public class PlayerController : MonoBehaviour
     private void Jump()
     {
         // 점프 이펙트 생성
-        jumpEffect.transform.position = transform.position;  // 이펙트를 캐릭터 위치에 생성
+       // jumpEffect.transform.position = transform.position;  // 이펙트를 캐릭터 위치에 생성
         jumpEffect.GetComponent<Animator>().SetTrigger("jump");
+        AudioManager.instance.PlaySound(AudioManager.instance.audioClips[5]);
 
         // Rigidbody2D에 위쪽으로 힘을 더해 점프
         rb.velocity = new Vector2(rb.velocity.x, jumpForce);

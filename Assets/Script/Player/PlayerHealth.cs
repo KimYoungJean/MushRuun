@@ -1,5 +1,5 @@
 using System.Collections;
-using System.Collections.Generic;
+
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -27,6 +27,7 @@ public class PlayerHealth : MonoBehaviour
 
     public void OnDamaged(int damage)
     {
+        AudioManager.instance.PlaySound(AudioManager.instance.audioClips[6]);
         currentHealth -= damage;
 
         if (currentHealth <= 0)
@@ -46,8 +47,16 @@ public class PlayerHealth : MonoBehaviour
     {
         Debug.Log("Player is dead");
         animator.SetTrigger("Die");
-        Time.timeScale = 0;
-        GameoverPanel.SetActive(true);
+        string playerName = FirebaseManager.Nickname;
+        float playerScore = UIManager.time;  // UIManager에서 점수 가져오기
+        // playerScore 둘쨰자리 까지만 표시
+        playerScore = Mathf.Round(playerScore * 100) / 100;
+
+
+        // Firebase에 데이터 저장
+        FindObjectOfType<FirebaseManager>().SavePlayerData(playerName, playerScore);
+        UIManager.instance.GameOver();
+
 
     }
 

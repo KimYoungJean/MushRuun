@@ -66,7 +66,7 @@ public class InfiniteLevel : MonoBehaviour
                 enemy.transform.SetParent(spawnPoint.transform);
             }
 
-        speed += 1.0f; // 속도를 증가시킴
+        speed += 0.5f; // 속도를 증가시킴
 
 
 
